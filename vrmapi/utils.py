@@ -9,7 +9,7 @@ def datetime_to_epoch(time):
     """
     Converts a given datetime object to an epoch timestamp
     @param - time
- 
+
     Returns int
     """
     diff = time - datetime.utcfromtimestamp(0)

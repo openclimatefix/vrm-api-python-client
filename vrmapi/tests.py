@@ -5,7 +5,6 @@ from vrm import VRM_API
 
 
 class TestAPIMethods(unittest.TestCase):
-
     @classmethod
     def setUpClass(cls):
         """
@@ -36,10 +35,10 @@ class TestAPIMethods(unittest.TestCase):
         """
         Testing getting counters for the last week of a site
         """
-        now = '1466936333'
-        last_week_now = '1466331533'
+        now = "1466936333"
+        last_week_now = "1466331533"
         result = self.client.get_counters_site(self.demo_site_id, last_week_now, now)
-        self.assertEqual('records' in result, True)
+        self.assertEqual("records" in result, True)
 
     def test_consumption_stats(self):
         """
@@ -47,40 +46,40 @@ class TestAPIMethods(unittest.TestCase):
         stats
         """
         result = self.client.get_consumption_stats(self.demo_site_id)
-        self.assertTrue(result['success'])
-        self.assertTrue('records' in result)
+        self.assertTrue(result["success"])
+        self.assertTrue("records" in result)
 
     def test_kwh_stats(self):
         """
         Test the returning of the kwh stats
         """
         result = self.client.get_consumption_stats(inst_id=self.demo_site_id)
-        self.assertTrue(result['success'])
-        self.assertTrue('records' in result)
+        self.assertTrue(result["success"])
+        self.assertTrue("records" in result)
 
     def test_consumption_aggr_stats(self):
         """
-        Test the aggregated stats 
+        Test the aggregated stats
         """
         result = self.client.consumption_aggr_stats(inst_id=self.demo_site_id)
-        self.assertTrue(result['success'])
-        self.assertTrue('records' in result)
+        self.assertTrue(result["success"])
+        self.assertTrue("records" in result)
 
     def test_kwh_aggr_stats(self):
         """
         Test the kwh aggregated stats
         """
         result = self.client.kwh_aggr_stats(inst_id=self.demo_site_id)
-        self.assertTrue(result['success'])
-        self.assertTrue('records' in result)
+        self.assertTrue(result["success"])
+        self.assertTrue("records" in result)
 
     def test_graph_widgets(self):
         """
-        Testing the graph widgets 
+        Testing the graph widgets
         """
-        result = self.client.graph_widgets(self.demo_site_id, ['IV1', 'IV2'])
-        self.assertTrue(result['success'])
-        self.assertTrue('records' in result)
+        result = self.client.graph_widgets(self.demo_site_id, ["IV1", "IV2"])
+        self.assertTrue(result["success"])
+        self.assertTrue("records" in result)
 
     def test_user_sites(self):
         """
@@ -88,17 +87,21 @@ class TestAPIMethods(unittest.TestCase):
         """
         # Testing the user sites simplified version
         sites_normal = self.client.get_user_sites(self.demo_user_id)
-        self.assertTrue(sites_normal['success'])
-        self.assertTrue('records' in sites_normal)
+        self.assertTrue(sites_normal["success"])
+        self.assertTrue("records" in sites_normal)
 
-        # Testing the users sites extended version 
-        sites_normal_extended = self.client.get_user_sites(self.demo_user_id, extended=True)
-        self.assertTrue(sites_normal_extended['success'])
-        self.assertTrue('records' in sites_normal_extended)
-        self.assertTrue('tags' in sites_normal_extended['records'][0])
+        # Testing the users sites extended version
+        sites_normal_extended = self.client.get_user_sites(
+            self.demo_user_id, extended=True
+        )
+        self.assertTrue(sites_normal_extended["success"])
+        self.assertTrue("records" in sites_normal_extended)
+        self.assertTrue("tags" in sites_normal_extended["records"][0])
 
-        self.assertEqual(len(sites_normal['records']), 25)  # Warning might break if user permissions change
+        self.assertEqual(
+            len(sites_normal["records"]), 25
+        )  # Warning might break if user permissions change
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
