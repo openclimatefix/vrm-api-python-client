@@ -185,7 +185,7 @@ class VRM_API:
         diag_request = self._send_query_request(request_url, data_dict)
         return diag_request
 
-    def get_kwh_stats(self, inst_id, start=None, end=None):
+    def get_kwh_stats(self, inst_id, start: datetime = None, end: datetime = None):
         """
         Returns the kwhs statistics for a given site
         @params - inst_id (installation id)
@@ -198,8 +198,9 @@ class VRM_API:
         if start and end:
             data_dict = {
                 "type": "kwh",
-                "start": datetime.datetime(start).timestamp(),
-                "end": datetime.datetime(end).timestamp(),
+                "start": start.timestamp(),
+                "end": end.timestamp(),
+                "interval": "15mins",
             }
         else:
             data_dict = {
