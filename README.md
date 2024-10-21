@@ -6,13 +6,13 @@ This repo is being maintained by OCF because [the original](https://github.com/v
 # Installation
 
 ``` bash
-$ pip install vrmapi
+$ pip install ocf_vrmapi
 ```
 
 # Examples
 
 ``` python
->> from vrmapi.vrm import VRM_API
+>> from ocf_vrmapi.vrm import VRM_API
 >> api = VRM_API(username='vrm_username', password='vrm_password')
 >> api.get_user_sites(api.user_id)
 

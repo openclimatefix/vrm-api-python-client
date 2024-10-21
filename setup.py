@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='ocf-vrmapi',
+    name='ocf_vrmapi',
     packages=find_packages(),
     version='0.1.1',
     description='Victron python api',
