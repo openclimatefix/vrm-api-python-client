@@ -6,7 +6,7 @@ with open('README.md') as f:
 setup(
     name='ocf_vrmapi',
     packages=find_packages(),
-    version='0.1.3',
+    version='0.1.4',
     description='Victron python api',
     license='MIT',
     long_description=readme,
